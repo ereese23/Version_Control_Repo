@@ -9,6 +9,13 @@ def encode(key):
            raise ValueError("Password must contain 8 digits.")
    return encoded_password
 
+def decode(encoded_key):
+   decoded_password = ""
+   for char in encoded_key:
+       if char.isdigit():
+           new_digit = (int(char) - 3) % 10
+           decoded_password += str(new_digit)
+   return decoded_password
 
 def main():
    encoded_password = None
